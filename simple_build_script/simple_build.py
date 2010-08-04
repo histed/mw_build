@@ -36,19 +36,21 @@ projects = [
             "mw_cocoa",
             "mw_server",
             "mw_client",
-            "mw_client_plugins/BehavioralWindow",
-            "mw_client_plugins/PythonBridgePlugin",
+            #"mw_client_plugins/BehavioralWindow",
+            #"mw_client_plugins/PythonBridgePlugin",
             "mw_client_plugins/VariablesWindow",
-            "mw_core_plugins/CircleStimulus",
+            "mw_datatools"
+            "dicarlolab-mworks/dicarlolab_mwclient_plugins/MATLABWindow"
+            #"mw_core_plugins/CircleStimulus",
             "mw_core_plugins/DriftingGratingStimulus",
-            "mw_core_plugins/NE500",
-            "mw_core_plugins/RectangleStimulus",
-            "mw_core_plugins/SidewinderPlugAndPlayGamepadPlugin",
+            #"mw_core_plugins/NE500",
+            #"mw_core_plugins/RectangleStimulus",
+            #"mw_core_plugins/SidewinderPlugAndPlayGamepadPlugin",
             "mw_editor",
-            "coxlab/coxlab_mwclient_plugins/CoxLabRatBehaviorControlPanel",
-            "coxlab/coxlab_mwcore_plugins/CobraTracker",
-            "coxlab/coxlab_mwcore_plugins/Phidgets",
-            "coxlab/mwMaskStimulus"
+            #"coxlab/coxlab_mwclient_plugins/CoxLabRatBehaviorControlPanel",
+            #"coxlab/coxlab_mwcore_plugins/CobraTracker",
+            #"coxlab/coxlab_mwcore_plugins/Phidgets",
+            #"coxlab/mwMaskStimulus"
             ]
              
 for p in projects:

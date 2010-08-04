@@ -31,22 +31,27 @@ repositories = ("mw_build",
                 "mw_server",
                 "mw_supporting",
                 "mw_client_plugins",
+                "dicarlolab-mworks/dicarlolab_mwclient_plugins",
                 "mw_core_plugins",
                 "mw_xcode_templates")
 
-github_url = "git://github.com/monkeyworks-project"
+main_github_url = "git://github.com/mworks-project"
 
 home_directory = os.path.expanduser('~')
-repository_path = "%s/Repositories/monkeyworks" % home_directory
+repository_path = "%s/Repositories/MWorks" % home_directory
 
 if not os.path.exists(repository_path):
     os.system("mkdir -p " + repository_path)
 
 os.chdir("%s" % repository_path)
     
-
-
 for repo in repositories:
+    if (len(repo.split('/')) > 1):
+        (github_url, repo) = repo.split('/')
+    else:
+        github_url = main_github_url
+        # and repo is unchanged
+    
     if command == "clone":
         command_string = "git clone %s/%s.git" % (github_url, repo)
         print("%s (current directory = %s): \n>>> %s" % (repo, os.getcwd(), command_string))
