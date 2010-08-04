@@ -32,6 +32,7 @@ repositories = ("mw_build",
                 "mw_supporting",
                 "mw_client_plugins",
                 "dicarlolab-mworks/dicarlolab_mwclient_plugins",
+                "maunsell/LabJackU6",
                 "mw_core_plugins",
                 "mw_xcode_templates")
 
@@ -48,6 +49,7 @@ os.chdir("%s" % repository_path)
 for repo in repositories:
     if (len(repo.split('/')) > 1):
         (github_url, repo) = repo.split('/')
+        github_url = "git://github.com/%s" % github_url
     else:
         github_url = main_github_url
         # and repo is unchanged
