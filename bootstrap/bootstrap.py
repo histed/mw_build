@@ -84,4 +84,3 @@ for repo in repositories:
         print("%s (%s): \n>>> %s" % (repo, os.getcwd(), command_string))
         os.system(command_string)
         print("\n")
-        
