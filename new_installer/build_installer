@@ -46,6 +46,7 @@ package_contents = {
         '/Library/Application Support/MWorks/Plugins/Core/ITC18Plugin.bundle',
         '/Library/Application Support/MWorks/Plugins/Core/MovieStimulusPlugin.bundle',
         '/Library/Application Support/MWorks/Plugins/Core/RectangleStimulusPlugin.bundle',
+        '/Library/Application Support/MWorks/Plugins/Core/WhiteNoiseBackground.bundle',
         ),
 
     'MWorksPythonTools':
@@ -53,6 +54,7 @@ package_contents = {
         '/Library/Application Support/MWorks/Plugins/Client/PythonBridgePlugin.bundle',
         '/Library/Application Support/MWorks/Scripting/Python',
         '/Library/Python/2.6/site-packages/mworks.pth',
+        '/Library/Python/2.7/site-packages/mworks.pth',
         ),
 
     'MWorksMATLABTools':
@@ -68,7 +70,7 @@ package_contents = {
 
     'MWorksDevelopmentFiles':
         (
-        '/Developer/Library/Xcode/Project Templates/MWorks',
+        '/Library/Application Support/Developer/Shared/Xcode/Project Templates/MWorks',
         '/Library/Application Support/MWorks/Developer',
         ),
 

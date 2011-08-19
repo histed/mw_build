@@ -14,13 +14,15 @@ mw_files = (
     '/Applications/MWClient.app',
     '/Applications/MWEditor.app',
     '/Applications/MWServer.app',
-    '/Developer/Library/Xcode/Project Templates/MWorks',
+    '/Library/Application Support/Developer/Shared/Xcode/Project Templates/MWorks',
     '/Library/Application Support/MWorks',
     '/Library/Frameworks/MWorksCocoa.framework',
     '/Library/Frameworks/MWorksCore.framework',
     '/Library/Python/2.6/site-packages/mworks.pth',
+    '/Library/Python/2.7/site-packages/mworks.pth',
 
     # Legacy
+    '/Developer/Library/Xcode/Project Templates/MWorks',
     '/Documents/MWorks',
     '/Documents/MonkeyWorks',
     '/Library/Application Support/MWClient',
@@ -109,6 +111,8 @@ def main():
                       help="check for installed MWorks files")
     parser.add_option('-b', '--backup', action='store_true', dest='backup',
                       help="don't restore, but back up old installation")
+    parser.add_option('-d', '--delete', action='store_true', dest='delete',
+                      help="permanently delete uninstalled files")
     (options, args) = parser.parse_args()
 
     backupdir = get_userdir('Desktop/MWorks Backup')
@@ -118,8 +122,12 @@ def main():
     elif options.backup:
         backup_files(backupdir)
     else:
-        backup_files(get_userdir('.Trash/Uninstalled MWorks'))
+        uninstalldir = get_userdir('.Trash/Uninstalled MWorks')
+        backup_files(uninstalldir)
         restore_files(backupdir)
+        if options.delete:
+            announce('Deleting "%s"', uninstalldir)
+            check_call(['rm', '-Rf', uninstalldir])
 
 
 if __name__ == '__main__':
