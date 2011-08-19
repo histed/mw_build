@@ -20,9 +20,12 @@ if not (os.getuid() == 0):
     sys.exit(-1)
 
 for p in paths:
-    print "Fixing permissions in %s" % p
+    print "Fixing groups and permissions in %s" % p
     os.system('find "%s" -print0 | xargs -0 chgrp admin' % p)
     os.system('find "%s" -type f -print0 | xargs -0 chmod g+rw' % p)
     os.system('find "%s" -type d -print0 | xargs -0 chmod g+rwx' % p)
+
+    print ("Fixing owners in %s" % p)
+    os.system('find "%s" -print0 | xargs -0 chown %s' % (p, os.getenv('SUDO_USER')))
 
 print "Done."
